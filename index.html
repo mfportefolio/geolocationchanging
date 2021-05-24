@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+body {  
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+div{
+background-color: #FFF;
+}
+</style>
+
+<body onload="getLocation()">
+
+<div>
+<h1> Alteração do fundo atraves da geolocalização </h1>
+<h1> Changing the background through geolocation  </h1>
+
+<p id="demo"></p>
+</div>
+<script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {
+	
+	var lat = position.coords.latitude;
+	var	lat =41.287108499999995;			
+	if (lat > 41.287 && lat < 41.289 ) {
+		document.body.style.backgroundImage = 'url(sic.jpg)';	
+		x.innerHTML = "Latitude: " + lat + 
+    "<br>Longitude: " + position.coords.longitude ;
+	
+	}
+	if (lat > 41.286 && lat < 41.288 ) {
+		document.body.style.backgroundImage = 'url(eng1.jpg)';	
+		x.innerHTML = "Latitude: " + lat + 
+    "<br>Longitude: " + position.coords.longitude ;
+	
+	}
+    	
+	if (lat > 41.289 && lat < 41.2897 ) {
+		document.body.style.backgroundImage = 'url(cantina.jpg)';	
+		x.innerHTML = "Latitude: " + lat + 
+    "<br>Longitude: " + position.coords.longitude ;
+	
+	}
+	
+}
+</script>
+
+
+<!-- 
+SIC
+Latitude: 41.287108499999995
+Longitude: -7.7411306
+
+Cantina
+Latitude: 41.2896451
+Longitude: -7.7363219999999995
+
+ENGENHARIA 1
+41.286750
+-7.740831
+-->
+
+</body>
+</html>
